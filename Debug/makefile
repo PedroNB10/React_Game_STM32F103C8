@@ -54,8 +54,8 @@ all: main-build
 main-build: React_Game.elf secondary-outputs
 
 # Tool invocations
-React_Game.elf: $(OBJS) $(USER_OBJS) D:\Documentos\Repositorio_Git_e_GitHub\Praticas_com_STM32\Workspace_STM32\React_Game\STM32F103C8TX_FLASH.ld
-	arm-none-eabi-gcc -o "React_Game.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Documentos\Repositorio_Git_e_GitHub\Praticas_com_STM32\Workspace_STM32\React_Game\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="React_Game.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+React_Game.elf: $(OBJS) $(USER_OBJS) D:\Documentos\Repositorios_Github\React_Game_STM32F103C8\STM32F103C8TX_FLASH.ld
+	arm-none-eabi-gcc -o "React_Game.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Documentos\Repositorios_Github\React_Game_STM32F103C8\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="React_Game.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

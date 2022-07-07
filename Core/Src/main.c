@@ -62,7 +62,7 @@ static void MX_GPIO_Init(void);
 //DECLARAÇÃO DAS FUNÇÕES
 void PiscaLeds();
 void ResetarJogo();
-void VerificarPontos();
+void MostrarPontos();
 void IniciarRodada();
 
 /* USER CODE END PFP */
@@ -115,7 +115,7 @@ int main(void)
 	  if(HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_10) == 1){ //botao de iniciar
 		  PiscaLeds();
 		  ResetarJogo();
-		  VerificarPontos();
+		  MostrarPontos();
 	      inicio_jogo = 1;
 	    }
 
@@ -124,7 +124,21 @@ int main(void)
 	    {
 	    HAL_Delay(3000);
 	    IniciarRodada();
-	    VerificarPontos();
+	    MostrarPontos();
+
+
+				if(ponto_player_1 == 3){
+						  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14, 1);
+						inicio_jogo = 0;
+					  }
+
+
+
+				 if(ponto_player_2 == 3){
+				  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3, 1);
+
+				   inicio_jogo = 0;
+				 }
 
 
 	    }
@@ -361,7 +375,7 @@ else{
 
 }
 
-void VerificarPontos(){
+void MostrarPontos(){
 
 	if(led_direita_ligado == 0 && led_esquerda_ligado == 0){
 		 HAL_GPIO_WritePin(GPIOB,GPIO_PIN_8, 0);
@@ -387,10 +401,7 @@ void VerificarPontos(){
 	  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_13, 1);
   }
 
-  else if(ponto_player_1 == 3){
-	  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14, 1);
-    inicio_jogo = 0;
-  }
+
 
     if(ponto_player_2 == 0){
     	//LEDS AMARELOS
@@ -409,11 +420,7 @@ void VerificarPontos(){
 
   }
 
-  else if(ponto_player_2 == 3){
-	  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3, 1);
 
-    inicio_jogo = 0;
-  }
 
 
 }

@@ -1,0 +1,19 @@
+!SESSION 2022-07-07 08:24:47.602 -----------------------------------------------
+eclipse.buildId=Version 1.5.1
+java.version=1.8.0_272
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Framework arguments:  D:\Documentos\Repositorios_Github\React_Game_STM32F103C8\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data D:\Documentos\Repositorios_Github\React_Game_STM32F103C8 D:\Documentos\Repositorios_Github\React_Game_STM32F103C8\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-07-07 08:24:55.458
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-07-07 08:24:55.548
+!MESSAGE Log4j initialized with config file D:\Documentos\Repositorios_Github\React_Game_STM32F103C8\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-07-07 08:24:59.993
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2022-07-07 08:26:02.187
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
