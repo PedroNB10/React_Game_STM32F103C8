@@ -44,6 +44,9 @@
 /* USER CODE BEGIN PV */
 //Variaveis Globais
 
+
+int tempo_de_resposta = 0;
+
 int inicio_jogo = 0;
 int led_esquerda_ligado = 0;
 int led_direita_ligado = 0;
@@ -130,6 +133,7 @@ int main(void)
 				if(ponto_player_1 == 3){
 						  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_14, 1);
 						inicio_jogo = 0;
+
 					  }
 
 
@@ -138,6 +142,7 @@ int main(void)
 				  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_3, 1);
 
 				   inicio_jogo = 0;
+
 				 }
 
 
@@ -331,6 +336,7 @@ else{
 
           led_esquerda_ligado = 0;
           led_direita_ligado = 0;
+     	 tempo_de_resposta = 0;
 
       }
 
@@ -341,18 +347,20 @@ else{
 
           led_esquerda_ligado = 0;
           led_direita_ligado = 0;
+     	 tempo_de_resposta = 0;
 
 
       }
 
 
    // Analise Jogada correta do Player 2
-      if((HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) == 1 && led_esquerda_ligado == 1) || (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5) == 1 && led_direita_ligado == 1)){
+  else  if((HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) == 1 && led_esquerda_ligado == 1) || (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_5) == 1 && led_direita_ligado == 1)){
 
         	ponto_player_2 =  ponto_player_2 + 1;
 
            led_esquerda_ligado = 0;
            led_direita_ligado = 0;
+           tempo_de_resposta = 0;
 
 
       }
@@ -364,9 +372,15 @@ else{
 
           led_esquerda_ligado = 0;
           led_direita_ligado = 0;
+     	  tempo_de_resposta = 0;
 
 
       }
+
+	   else{
+		   tempo_de_resposta++;
+		   HAL_Delay(100); // É possível diminuir o tempo para 1/10 de tempo para não haver tanta diferença de tempo para verificar as outras condições de jogo
+	   }
 
   }
 
